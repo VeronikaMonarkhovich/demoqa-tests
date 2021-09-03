@@ -1,10 +1,8 @@
 package com.taory.tests;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import java.io.File;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -46,7 +44,7 @@ public class PracticeFormTest {
         $("#city").find("input").setValue(city ).pressEnter();
         $("#submit").scrollTo().click();
 
-        $(".modal-content").shouldBe(Condition.visible);
+        $(".modal-content").shouldHave(text("Thanks for submitting the form"));
         $x("//td[text()='Student Name']/following-sibling::td").shouldHave(text("Jack Jackson"));
         $x("//td[text()='Student Email']/following-sibling::td").shouldHave(text("jack@oo.com"));
         $x("//td[text()='Gender']/following-sibling::td").shouldHave(text("Male"));
