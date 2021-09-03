@@ -44,8 +44,8 @@ public class PracticeFormTest {
         $("#currentAddress").setValue(currentAddress);
         $("#state").find("input").setValue(state).pressEnter();
         $("#city").find("input").setValue(city ).pressEnter();
-
         $("#submit").scrollTo().click();
+
         $(".modal-content").shouldBe(Condition.visible);
         $x("//td[text()='Student Name']/following-sibling::td").shouldHave(text("Jack Jackson"));
         $x("//td[text()='Student Email']/following-sibling::td").shouldHave(text("jack@oo.com"));
