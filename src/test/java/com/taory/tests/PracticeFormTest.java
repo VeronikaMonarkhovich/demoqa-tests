@@ -37,10 +37,10 @@ public class PracticeFormTest {
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption(month);
         $(".react-datepicker__year-select").selectOption(year);
-        $x("//div[@class='react-datepicker__week']/*[text()=23]").click();
+        $(".react-datepicker__day--023").click();
         $("#subjectsContainer").find("input").setValue(subjects).pressEnter();
         $("[for=hobbies-checkbox-2]").click();
-        $("#uploadPicture").uploadFile(new File("src/test/myfile" + File.separator + "test.png"));
+        $("#uploadPicture").uploadFile(new File("src/test/resources" + File.separator + "test.png"));
         $("#currentAddress").setValue(currentAddress);
         $("#state").find("input").setValue(state).pressEnter();
         $("#city").find("input").setValue(city ).pressEnter();
