@@ -40,7 +40,7 @@ public class PracticeFormTest {
         $(".react-datepicker__day--023").click();
         $("#subjectsContainer").find("input").setValue(subjects).pressEnter();
         $("[for=hobbies-checkbox-2]").click();
-        $("#uploadPicture").uploadFile(new File("src/test/resources" + File.separator + "test.png"));
+        $("#uploadPicture").uploadFromClasspath("test.png");
         $("#currentAddress").setValue(currentAddress);
         $("#state").find("input").setValue(state).pressEnter();
         $("#city").find("input").setValue(city ).pressEnter();
