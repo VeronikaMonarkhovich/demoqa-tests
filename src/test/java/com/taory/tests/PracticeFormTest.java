@@ -4,9 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
 import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -42,15 +40,13 @@ public class PracticeFormTest {
         $x("//div[@class='react-datepicker__week']/*[text()=23]").click();
         $("#subjectsContainer").find("input").setValue(subjects).pressEnter();
         $("[for=hobbies-checkbox-2]").click();
+        $("#uploadPicture").uploadFile(new File("src/test/myfile" + File.separator + "test.png"));
         $("#currentAddress").setValue(currentAddress);
         $("#state").find("input").setValue(state).pressEnter();
         $("#city").find("input").setValue(city ).pressEnter();
 
-
         $("#submit").scrollTo().click();
-
         $(".modal-content").shouldBe(Condition.visible);
-
         $x("//td[text()='Student Name']/following-sibling::td").shouldHave(text("Jack Jackson"));
         $x("//td[text()='Student Email']/following-sibling::td").shouldHave(text("jack@oo.com"));
         $x("//td[text()='Gender']/following-sibling::td").shouldHave(text("Male"));
@@ -58,16 +54,8 @@ public class PracticeFormTest {
         $x("//td[text()='Date of Birth']/following-sibling::td").shouldHave(text("23 September,1990"));
         $x("//td[text()='Subjects']/following-sibling::td").shouldHave(text("Physics"));
         $x("//td[text()='Hobbies']/following-sibling::td").shouldHave(text("Reading"));
+        $x("//td[text()='Picture']/following-sibling::td").shouldHave(text("test.png"));
         $x("//td[text()='Address']/following-sibling::td").shouldHave(text("Street"));
         $x("//td[text()='State and City']/following-sibling::td").shouldHave(text("NCR Delhi"));
-
-
-
-
-
-
-
-
     }
-
 }
