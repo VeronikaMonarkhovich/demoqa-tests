@@ -1,12 +1,29 @@
-package com.taory.tests;
+package com.taory.pages.tests;
 
+import com.github.javafaker.Faker;
 import com.taory.pages.PracticeFormPage;
 import org.junit.jupiter.api.Test;
+
+import java.util.Locale;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
-import static com.taory.tests.TestData.*;
 
-public class PracticeFormTest extends TestBase {
+public class PracticeFormTest {
+    Faker faker = new Faker(new Locale("en"));
+
+    String firstName = faker.name().firstName();
+    String lastName = faker.name().lastName();
+    String userEmail = faker.internet().emailAddress();
+    String userNumber = faker.number().digits(10);
+    String subjects = "Physics";
+    String currentAddress = faker.address().streetAddress();
+    String state = "NCR";
+    String city = "Delhi";
+    String day = "15";
+    String month = "August";
+    String year = "1990";
+
     PracticeFormPage practiceFormPage = new PracticeFormPage();
 
     @Test

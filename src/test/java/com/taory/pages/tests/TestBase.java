@@ -1,4 +1,4 @@
-package com.taory.tests;
+package com.taory.pages.tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
