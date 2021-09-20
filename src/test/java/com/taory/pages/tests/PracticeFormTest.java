@@ -3,11 +3,7 @@ package com.taory.pages.tests;
 import com.github.javafaker.Faker;
 import com.taory.pages.PracticeFormPage;
 import org.junit.jupiter.api.Test;
-
 import java.util.Locale;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormTest {
     Faker faker = new Faker(new Locale("en"));
@@ -24,7 +20,7 @@ public class PracticeFormTest {
     String month = "August";
     String year = "1990";
     String gender = "Male";
-    String hobbie = "Reading";
+    String hobby = "Reading";
     String file = "test.png";
     String text = "Thanks for submitting the form";
 
@@ -40,7 +36,7 @@ public class PracticeFormTest {
         practiceFormPage.typeUserNumber(userNumber);
         practiceFormPage.calendar.setDate(day, month, year);
         practiceFormPage.typeSubject(subjects);
-        practiceFormPage.selectHobbies(hobbie);
+        practiceFormPage.selectHobbies(hobby);
         practiceFormPage.uploadFile(file);
         practiceFormPage.typeCurrentAddress(currentAddress);
         practiceFormPage.selectState(state);
@@ -54,7 +50,7 @@ public class PracticeFormTest {
         practiceFormPage.checkResultsValue("Mobile", userNumber);
         practiceFormPage.checkResultsValue("Date of Birth", day + " " + month + "," + year);
         practiceFormPage.checkResultsValue("Subjects", subjects);
-        practiceFormPage.checkResultsValue("Hobbies", hobbie);
+        practiceFormPage.checkResultsValue("Hobbies", hobby);
         practiceFormPage.checkResultsValue("Picture", file);
         practiceFormPage.checkResultsValue("Address", currentAddress);
         practiceFormPage.checkResultsValue("State and City", state + " " + city);
