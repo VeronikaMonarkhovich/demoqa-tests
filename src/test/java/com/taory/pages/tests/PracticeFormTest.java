@@ -7,7 +7,7 @@ import java.util.Locale;
 
 import static io.qameta.allure.Allure.step;
 
-public class PracticeFormTest {
+public class PracticeFormTest extends TestBase {
     Faker faker = new Faker(new Locale("en"));
 
     String firstName = faker.name().firstName();
