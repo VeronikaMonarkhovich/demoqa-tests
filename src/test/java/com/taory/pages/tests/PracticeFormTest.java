@@ -5,6 +5,8 @@ import com.taory.pages.PracticeFormPage;
 import org.junit.jupiter.api.Test;
 import java.util.Locale;
 
+import static io.qameta.allure.Allure.step;
+
 public class PracticeFormTest {
     Faker faker = new Faker(new Locale("en"));
 
@@ -28,32 +30,53 @@ public class PracticeFormTest {
 
     @Test
     void fillFormTest() {
-        practiceFormPage.openPage();
-        practiceFormPage.typeFirstName(firstName);
-        practiceFormPage.typeLastName(lastName);
-        practiceFormPage.typeUserEmail(userEmail);
-        practiceFormPage.selectGender(gender);
-        practiceFormPage.typeUserNumber(userNumber);
-        practiceFormPage.calendar.setDate(day, month, year);
-        practiceFormPage.typeSubject(subjects);
-        practiceFormPage.selectHobbies(hobby);
-        practiceFormPage.uploadFile(file);
-        practiceFormPage.typeCurrentAddress(currentAddress);
-        practiceFormPage.selectState(state);
-        practiceFormPage.selectCity(city);
-        practiceFormPage.clickSubmit();
+        step("Открываем главную страницу", () -> {
+            practiceFormPage.openPage();
+        });
 
-        practiceFormPage.checkResultsText(text );
-        practiceFormPage.checkResultsValue("Student Name", firstName + " " + lastName);
-        practiceFormPage.checkResultsValue("Student Email", userEmail);
-        practiceFormPage.checkResultsValue("Gender", gender);
-        practiceFormPage.checkResultsValue("Mobile", userNumber);
-        practiceFormPage.checkResultsValue("Date of Birth", day + " " + month + "," + year);
-        practiceFormPage.checkResultsValue("Subjects", subjects);
-        practiceFormPage.checkResultsValue("Hobbies", hobby);
-        practiceFormPage.checkResultsValue("Picture", file);
-        practiceFormPage.checkResultsValue("Address", currentAddress);
-        practiceFormPage.checkResultsValue("State and City", state + " " + city);
+        step("Вводим данные студента", () -> {
+            practiceFormPage.typeFirstName(firstName);
+            practiceFormPage.typeLastName(lastName);
+            practiceFormPage.typeUserEmail(userEmail);
+            practiceFormPage.selectGender(gender);
+            practiceFormPage.typeUserNumber(userNumber);
+        });
 
+        step("Выбираем дату рождения", () -> {
+            practiceFormPage.calendar.setDate(day, month, year);
+        });
+
+        step("Выбираем предметы и хобби", () -> {
+            practiceFormPage.typeSubject(subjects);
+            practiceFormPage.selectHobbies(hobby);
+        });
+
+        step("Загружаем файл", () -> {
+            practiceFormPage.uploadFile(file);
+        });
+
+        step("Вводим адрес", () -> {
+            practiceFormPage.typeCurrentAddress(currentAddress);
+            practiceFormPage.selectState(state);
+            practiceFormPage.selectCity(city);
+        });
+
+        step("Нажимаем Submit", () -> {
+            practiceFormPage.clickSubmit();
+        });
+
+        step("Проверяем результаты", () -> {
+            practiceFormPage.checkResultsText(text);
+            practiceFormPage.checkResultsValue("Student Name", firstName + " " + lastName);
+            practiceFormPage.checkResultsValue("Student Email", userEmail);
+            practiceFormPage.checkResultsValue("Gender", gender);
+            practiceFormPage.checkResultsValue("Mobile", userNumber);
+            practiceFormPage.checkResultsValue("Date of Birth", day + " " + month + "," + year);
+            practiceFormPage.checkResultsValue("Subjects", subjects);
+            practiceFormPage.checkResultsValue("Hobbies", hobby);
+            practiceFormPage.checkResultsValue("Picture", file);
+            practiceFormPage.checkResultsValue("Address", currentAddress);
+            practiceFormPage.checkResultsValue("State and City", state + " " + city);
+        });
     }
 }

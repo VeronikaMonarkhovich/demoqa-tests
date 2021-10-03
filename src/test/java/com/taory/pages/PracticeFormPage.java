@@ -3,9 +3,7 @@ package com.taory.pages;
 import com.codeborne.selenide.SelenideElement;
 import com.taory.pages.components.CalendarComponent;
 
-import static com.codeborne.selenide.Condition.pseudo;
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormPage {
@@ -81,5 +79,4 @@ public class PracticeFormPage {
     public void checkResultsValue(String key, String value) {
         $x("//td[text()='" + key + "']/following-sibling::td").shouldHave(text(value));
     }
-
 }
