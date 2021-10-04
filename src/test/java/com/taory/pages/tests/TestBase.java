@@ -23,7 +23,7 @@ public class TestBase {
 
         Configuration.browserCapabilities = capabilities;
         Configuration.startMaximized = true;
-        Configuration.remote = "https://"+ credentials.login()+":"+credentials.password()+"@"+System.getProperty("REMOTE_URL");
+        Configuration.remote = "https://" + credentials.login() + ":" + credentials.password() + "@" + System.getProperty("REMOTE_URL");
     }
 
     @AfterEach
